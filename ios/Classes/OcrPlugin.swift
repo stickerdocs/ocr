@@ -19,7 +19,7 @@ public class OcrPlugin: NSObject, FlutterPlugin {
   }
 
   func dothing() -> String {
-    guard let cgImage = UIImage(named: "/Users/antfie/Documents/StickerDocs/Engineering/_POC/test_data/raw/2020-11-21 16.33.10.jpg")?.cgImage else { return }
+    guard let cgImage = UIImage(named: "/Users/antfie/Documents/StickerDocs/Engineering/_POC/test_data/raw/2020-11-21 16.33.10.jpg")?.cgImage else { return "s" }
         
         
         let requestHandler = VNImageRequestHandler(cgImage: cgImage )
