@@ -1,6 +1,6 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-import 'ocr_method_channel.dart';
+import 'package:stickerdocs_ocr/ocr_method_channel.dart';
 
 abstract class OcrPlatform extends PlatformInterface {
   /// Constructs a OcrPlatform.

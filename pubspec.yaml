@@ -1,7 +1,7 @@
-name: ocr
-description: A new Flutter plugin project.
-version: 0.0.1
-homepage:
+name: stickerdocs_ocr
+description: StickerDocs OCR
+version: 1.0.0+1
+homepage: https://github.com/stickerdocs/ocr
 
 environment:
   sdk: '>=3.0.5 <4.0.0'

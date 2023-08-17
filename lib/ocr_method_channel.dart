@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-import 'ocr_platform_interface.dart';
+import 'package:stickerdocs_ocr/ocr_platform_interface.dart';
 
 /// An implementation of [OcrPlatform] that uses method channels.
 class MethodChannelOcr extends OcrPlatform {
