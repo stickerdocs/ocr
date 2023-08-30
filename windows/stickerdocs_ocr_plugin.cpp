@@ -1,4 +1,4 @@
-#include "ocr_plugin.h"
+#include "stickerdocs_ocr_plugin.h"
 
 // This must be included before many other Windows headers.
 #include <windows.h>
@@ -13,17 +13,17 @@
 #include <memory>
 #include <sstream>
 
-namespace ocr {
+namespace stickerdocs_ocr {
 
 // static
-void OcrPlugin::RegisterWithRegistrar(
+void StickerdocsOcrPlugin::RegisterWithRegistrar(
     flutter::PluginRegistrarWindows *registrar) {
   auto channel =
       std::make_unique<flutter::MethodChannel<flutter::EncodableValue>>(
-          registrar->messenger(), "ocr",
+          registrar->messenger(), "stickerdocs_ocr",
           &flutter::StandardMethodCodec::GetInstance());
 
-  auto plugin = std::make_unique<OcrPlugin>();
+  auto plugin = std::make_unique<StickerdocsOcrPlugin>();
 
   channel->SetMethodCallHandler(
       [plugin_pointer = plugin.get()](const auto &call, auto result) {
@@ -33,11 +33,11 @@ void OcrPlugin::RegisterWithRegistrar(
   registrar->AddPlugin(std::move(plugin));
 }
 
-OcrPlugin::OcrPlugin() {}
+StickerdocsOcrPlugin::StickerdocsOcrPlugin() {}
 
-OcrPlugin::~OcrPlugin() {}
+StickerdocsOcrPlugin::~StickerdocsOcrPlugin() {}
 
-void OcrPlugin::HandleMethodCall(
+void StickerdocsOcrPlugin::HandleMethodCall(
     const flutter::MethodCall<flutter::EncodableValue> &method_call,
     std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
   if (method_call.method_name().compare("getPlatformVersion") == 0) {
@@ -56,4 +56,4 @@ void OcrPlugin::HandleMethodCall(
   }
 }
 
-}  // namespace ocr
+}  // namespace stickerdocs_ocr

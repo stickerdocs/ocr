@@ -1,4 +1,4 @@
-group 'com.stickerdocs.ocr'
+group 'com.stickerdocs.stickerdocs_ocr'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -25,7 +25,11 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 31
+    if (project.android.hasProperty("namespace")) {
+        namespace 'com.stickerdocs.stickerdocs_ocr'
+    }
+
+    compileSdkVersion 33
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -42,7 +46,7 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 19
     }
 
     dependencies {

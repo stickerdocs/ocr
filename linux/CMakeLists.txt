@@ -4,16 +4,16 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Project-level configuration.
-set(PROJECT_NAME "ocr")
+set(PROJECT_NAME "stickerdocs_ocr")
 project(${PROJECT_NAME} LANGUAGES CXX)
 
 # This value is used when generating builds using this plugin, so it must
 # not be changed.
-set(PLUGIN_NAME "ocr_plugin")
+set(PLUGIN_NAME "stickerdocs_ocr_plugin")
 
 # Any new source files that you add to the plugin should be added here.
 list(APPEND PLUGIN_SOURCES
-  "ocr_plugin.cc"
+  "stickerdocs_ocr_plugin.cc"
 )
 
 # Define the plugin library target. Its name must not be changed (see comment

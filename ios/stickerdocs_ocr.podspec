@@ -5,13 +5,13 @@
 Pod::Spec.new do |s|
   s.name             = 'stickerdocs_ocr'
   s.version          = '0.0.1'
-  s.summary          = 'OCR'
+  s.summary          = 'StickerDocs OCR'
   s.description      = <<-DESC
 StickerDocs OCR
                        DESC
   s.homepage         = 'https://stickerdocs.com'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'StickerDocs Limited' => 'support@stickerdpcs.com' }
+  s.author           = { 'StickerDocs Limited' => 'support@stickerdocs.com' }
   s.source           = { :path => '.' }
   s.source_files     = 'Classes/**/*'
   s.dependency 'Flutter'

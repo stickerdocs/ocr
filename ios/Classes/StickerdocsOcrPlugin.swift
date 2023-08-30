@@ -1,11 +1,11 @@
-import Cocoa
-import FlutterMacOS
+import Flutter
+import UIKit
 import Vision
 
-public class OcrPlugin: NSObject, FlutterPlugin {
+public class StickerdocsOcrPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "ocr", binaryMessenger: registrar.messenger)
-    let instance = OcrPlugin()
+    let channel = FlutterMethodChannel(name: "stickerdocs_ocr", binaryMessenger: registrar.messenger())
+    let instance = StickerdocsOcrPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
@@ -19,23 +19,21 @@ public class OcrPlugin: NSObject, FlutterPlugin {
   }
 
   func dothing() -> String {
-if let image = NSImage(named: "/Users/antfie/Documents/StickerDocs/Engineering/_POC/test_data/raw/2020-11-21 16.33.10.jpg"){
-            let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil)
+    guard let cgImage = UIImage(named: "/Users/antfie/Documents/StickerDocs/Engineering/_POC/test_data/raw/2020-11-21 16.33.10.jpg")?.cgImage else { return "s" }
         
-            
-            let requestHandler = VNImageRequestHandler(cgImage: cgImage! )
+        
+        let requestHandler = VNImageRequestHandler(cgImage: cgImage )
 
 
-            // Create a new request to recognize text.
-            let request = VNRecognizeTextRequest(completionHandler: recognizeTextHandler)
-            
-            
-            do {
-                // Perform the text-recognition request.
-                try requestHandler.perform([request])
-            } catch {
-                print("Unable to perform the requests: \(error).")
-            }
+        // Create a new request to recognize text.
+        let request = VNRecognizeTextRequest(completionHandler: recognizeTextHandler)
+
+
+        do {
+            // Perform the text-recognition request.
+            try requestHandler.perform([request])
+        } catch {
+            print("Unable to perform the requests: \(error).")
         }
 
         return "d"
@@ -50,9 +48,9 @@ if let image = NSImage(named: "/Users/antfie/Documents/StickerDocs/Engineering/_
             // Return the string of the top VNRecognizedText instance.
             return observation.topCandidates(1).first?.string
         }
+        
 
         print(recognizedStrings)
-        
         // Process the recognized strings.
     }
 }

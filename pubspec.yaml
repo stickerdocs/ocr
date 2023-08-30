@@ -4,8 +4,8 @@ version: 1.0.0+1
 homepage: https://github.com/stickerdocs/ocr
 
 environment:
-  sdk: '>=3.0.5 <4.0.0'
-  flutter: ">=3.3.0"
+  sdk: '>=3.1.0 <4.0.0'
+  flutter: '>=3.3.0'
 
 dependencies:
   flutter:
@@ -35,16 +35,16 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.stickerdocs.ocr
-        pluginClass: OcrPlugin
+        package: com.stickerdocs.stickerdocs_ocr
+        pluginClass: StickerdocsOcrPlugin
       ios:
-        pluginClass: OcrPlugin
+        pluginClass: StickerdocsOcrPlugin
       linux:
-        pluginClass: OcrPlugin
+        pluginClass: StickerdocsOcrPlugin
       macos:
-        pluginClass: OcrPlugin
+        pluginClass: StickerdocsOcrPlugin
       windows:
-        pluginClass: OcrPluginCApi
+        pluginClass: StickerdocsOcrPluginCApi
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

@@ -1,12 +1,12 @@
-#include "include/ocr/ocr_plugin_c_api.h"
+#include "include/stickerdocs_ocr/stickerdocs_ocr_plugin_c_api.h"
 
 #include <flutter/plugin_registrar_windows.h>
 
-#include "ocr_plugin.h"
+#include "stickerdocs_ocr_plugin.h"
 
-void OcrPluginCApiRegisterWithRegistrar(
+void StickerdocsOcrPluginCApiRegisterWithRegistrar(
     FlutterDesktopPluginRegistrarRef registrar) {
-  ocr::OcrPlugin::RegisterWithRegistrar(
+  stickerdocs_ocr::StickerdocsOcrPlugin::RegisterWithRegistrar(
       flutter::PluginRegistrarManager::GetInstance()
           ->GetRegistrar<flutter::PluginRegistrarWindows>(registrar));
 }

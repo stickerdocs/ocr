@@ -1,4 +1,4 @@
-#include "include/ocr/ocr_plugin.h"
+#include "include/ocr/stickerdocs_ocr_plugin.h"
 
 #include <flutter_linux/flutter_linux.h>
 #include <gtk/gtk.h>
@@ -6,20 +6,20 @@
 
 #include <cstring>
 
-#include "ocr_plugin_private.h"
+#include "stickerdocs_ocr_plugin_private.h"
 
-#define OCR_PLUGIN(obj) \
-  (G_TYPE_CHECK_INSTANCE_CAST((obj), ocr_plugin_get_type(), \
+#define STICKERDOCS_OCR_PLUGIN(obj) \
+  (G_TYPE_CHECK_INSTANCE_CAST((obj), stickerdocs_ocr_plugin_get_type(), \
                               OcrPlugin))
 
 struct _OcrPlugin {
   GObject parent_instance;
 };
 
-G_DEFINE_TYPE(OcrPlugin, ocr_plugin, g_object_get_type())
+G_DEFINE_TYPE(StickerdocsOcrPlugin, stickerdocs_ocr_plugin, g_object_get_type())
 
 // Called when a method call is received from Flutter.
-static void ocr_plugin_handle_method_call(
+static void stickerdocs_ocr_plugin_handle_method_call(
     OcrPlugin* self,
     FlMethodCall* method_call) {
   g_autoptr(FlMethodResponse) response = nullptr;
@@ -43,30 +43,30 @@ FlMethodResponse* get_platform_version() {
   return FL_METHOD_RESPONSE(fl_method_success_response_new(result));
 }
 
-static void ocr_plugin_dispose(GObject* object) {
-  G_OBJECT_CLASS(ocr_plugin_parent_class)->dispose(object);
+static void stickerdocs_ocr_plugin_dispose(GObject* object) {
+  G_OBJECT_CLASS(stickerdocs_ocr_plugin_parent_class)->dispose(object);
 }
 
-static void ocr_plugin_class_init(OcrPluginClass* klass) {
-  G_OBJECT_CLASS(klass)->dispose = ocr_plugin_dispose;
+static void stickerdocs_ocr_plugin_class_init(OcrPluginClass* klass) {
+  G_OBJECT_CLASS(klass)->dispose = stickerdocs_ocr_plugin_dispose;
 }
 
-static void ocr_plugin_init(OcrPlugin* self) {}
+static void stickerdocs_ocr_plugin_init(OcrPlugin* self) {}
 
 static void method_call_cb(FlMethodChannel* channel, FlMethodCall* method_call,
                            gpointer user_data) {
-  OcrPlugin* plugin = OCR_PLUGIN(user_data);
-  ocr_plugin_handle_method_call(plugin, method_call);
+  StickerdocsOcrPlugin* plugin = STICKERDOCS_OCR_PLUGIN(user_data);
+  stickerdocs_ocr_plugin_handle_method_call(plugin, method_call);
 }
 
-void ocr_plugin_register_with_registrar(FlPluginRegistrar* registrar) {
+void stickerdocs_ocr_plugin_register_with_registrar(FlPluginRegistrar* registrar) {
   OcrPlugin* plugin = OCR_PLUGIN(
       g_object_new(ocr_plugin_get_type(), nullptr));
 
   g_autoptr(FlStandardMethodCodec) codec = fl_standard_method_codec_new();
   g_autoptr(FlMethodChannel) channel =
       fl_method_channel_new(fl_plugin_registrar_get_messenger(registrar),
-                            "ocr",
+                            "stickerdocs_ocr",
                             FL_METHOD_CODEC(codec));
   fl_method_channel_set_method_call_handler(channel, method_call_cb,
                                             g_object_ref(plugin),

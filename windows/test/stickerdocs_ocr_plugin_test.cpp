@@ -8,9 +8,9 @@
 #include <string>
 #include <variant>
 
-#include "ocr_plugin.h"
+#include "stickerdocs_ocr_plugin.h"
 
-namespace ocr {
+namespace stickerdocs_ocr {
 namespace test {
 
 namespace {
@@ -22,8 +22,8 @@ using flutter::MethodResultFunctions;
 
 }  // namespace
 
-TEST(OcrPlugin, GetPlatformVersion) {
-  OcrPlugin plugin;
+TEST(StickerdocsOcrPlugin, GetPlatformVersion) {
+  StickerdocsOcrPlugin plugin;
   // Save the reply value from the success callback.
   std::string result_string;
   plugin.HandleMethodCall(
@@ -40,4 +40,4 @@ TEST(OcrPlugin, GetPlatformVersion) {
 }
 
 }  // namespace test
-}  // namespace ocr
+}  // namespace stickerdocs_ocr

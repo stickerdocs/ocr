@@ -2,7 +2,7 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
-#include "include/ocr/ocr_plugin.h"
+#include "include/ocr/stickerdocs_ocr_plugin.h"
 #include "ocr_plugin_private.h"
 
 // This demonstrates a simple unit test of the C portion of this plugin's
@@ -13,7 +13,7 @@
 // built for x64 debug, run:
 // $ build/linux/x64/debug/plugins/my_plugin/my_plugin_test
 
-namespace ocr {
+namespace stickerdocs_ocr {
 namespace test {
 
 TEST(OcrPlugin, GetPlatformVersion) {
