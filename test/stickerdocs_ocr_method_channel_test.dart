@@ -1,13 +1,12 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:stickerdocs_ocr/ocr_method_channel.dart';
+import 'package:stickerdocs_ocr/stickerdocs_ocr_method_channel.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelOcr platform = MethodChannelOcr();
-  const MethodChannel channel = MethodChannel('ocr');
+  MethodChannelStickerdocsOcr platform = MethodChannelStickerdocsOcr();
+  const MethodChannel channel = MethodChannel('stickerdocs_ocr');
 
   setUp(() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(
