@@ -2,8 +2,8 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
-#include "include/ocr/stickerdocs_ocr_plugin.h"
-#include "ocr_plugin_private.h"
+#include "include/stickerdocs_ocr/stickerdocs_ocr_plugin.h"
+#include "stickerdocs_ocr_plugin_private.h"
 
 // This demonstrates a simple unit test of the C portion of this plugin's
 // implementation.
@@ -16,7 +16,7 @@
 namespace stickerdocs_ocr {
 namespace test {
 
-TEST(OcrPlugin, GetPlatformVersion) {
+TEST(StickerdocsOcrPlugin, GetPlatformVersion) {
   g_autoptr(FlMethodResponse) response = get_platform_version();
   ASSERT_NE(response, nullptr);
   ASSERT_TRUE(FL_IS_METHOD_SUCCESS_RESPONSE(response));
@@ -28,4 +28,4 @@ TEST(OcrPlugin, GetPlatformVersion) {
 }
 
 }  // namespace test
-}  // namespace ocr
+}  // namespace stickerdocs_ocr
